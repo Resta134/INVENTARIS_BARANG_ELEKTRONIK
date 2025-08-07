@@ -78,34 +78,6 @@ class BarangElektronikController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    // public function update(Request $request, BarangElektronik $barangElektronik)
-    // {
-    //     $request->validate([
-    //         'nama_barang' => [
-    //             'required', 'string', 'max:255', 
-    //             Rule::unique('barang_elektronik', 
-    //             'nama_barang')->ignore($barangElektronik->id),
-    //         ],
-    //         'kode_barang' => [
-    //             'required', 'string', 'max:100', 
-    //             Rule::unique('barang_elektronik', 
-    //             'kode_barang')->ignore($barangElektronik->id),
-    //         ],
-    //         'kategori' => 'required|string|max:100',
-    //         'merk' => 'nullable|string|max:100',
-    //         'model' => 'nullable|string|max:100',
-    //         'tahun_pembelian' => 'required|integer|min:2000|max:' . date('Y'),
-    //         'kondisi' => 'required|string|max:50',
-    //         'jumlah' => 'required|integer|min:1',
-    //         'lokasi_penyimpanan' => 'required|string|max:255',
-    //         'keterangan' => 'nullable|string',
-    //     ]);
-
-    //     $barangElektronik->update($request->all());
-
-    //     return redirect()->route('barang.index')->with('successMessage', 'Barang berhasil diperbarui.');
-    // }
-
     public function update(Request $request, string $id)
     {
         $barang = BarangElektronik::findOrFail($id);
