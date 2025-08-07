@@ -9,8 +9,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::resource('kategori', CategoryController::class);
-Route::resource('barang', BarangElektronikController::class);    
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], function () {
+    Route::resource('kategori', CategoryController::class);
+    Route::resource('barang', BarangElektronikController::class);    
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
